@@ -245,7 +245,9 @@ public class RNCWebViewManager extends SimpleViewManager<WebView> {
 
   @ReactProp(name = "forceDarkMode")
   public void setForceDarkMode(WebView view, boolean enabled) {
-    view.getSettings().setForceDark(enabled ? WebSettings.FORCE_DARK_ON : WebSettings.FORCE_DARK_AUTO);
+    if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+      view.getSettings().setForceDark(enabled ? WebSettings.FORCE_DARK_ON : WebSettings.FORCE_DARK_AUTO);
+    }
   }
 
   @ReactProp(name = "showsHorizontalScrollIndicator")
