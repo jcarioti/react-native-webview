@@ -14,7 +14,7 @@ import {
 
 type WebViewCommands = 'goForward' | 'goBack' | 'reload' | 'stopLoading' | 'postMessage' | 'injectJavaScript' | 'loadUrl' | 'requestFocus';
 
-type AndroidWebViewCommands = 'clearHistory' | 'clearCache' | 'clearFormData';
+type AndroidWebViewCommands = 'clearHistory' | 'clearCache' | 'clearFormData' | 'pauseTimers' | 'resumeTimers';
 
 
 
@@ -973,4 +973,14 @@ export interface WebViewSharedProps extends ViewProps {
    * Should caching be enabled. Default is true.
    */
   cacheEnabled?: boolean;
+
+  /**
+   * Pauses all layout, parsing, and Javascript timers for Webview.
+   */
+  pauseTimers(): void;
+
+  /**
+   * Resumes all layout, parsing, and JavaScript timers for WebViews. 
+   */
+  resumeTimers(): void;
 }

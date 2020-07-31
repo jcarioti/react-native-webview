@@ -161,6 +161,22 @@ class WebView extends React.Component<AndroidWebViewProps, State> {
     );
   };
 
+  pauseTimers = () => {
+    UIManager.dispatchViewManagerCommand(
+      this.getWebViewHandle(),
+      this.getCommands().pauseTimers,
+       undefined,
+    )
+  }
+
+  resumeTimers = () => {
+    UIManager.dispatchViewManagerCommand(
+      this.getWebViewHandle(),
+      this.getCommands().resumeTimers,
+       undefined,
+    )
+  }
+
   /**
    * Injects a javascript string into the referenced WebView. Deliberately does not
    * return a response because using eval() to return a response breaks this method
