@@ -257,7 +257,7 @@ public class RNCWebViewManager extends SimpleViewManager<WebView> {
   @ReactProp(name = "forceDarkMode")
   public void setForceDarkMode(WebView view, boolean enabled) {
     if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK_STRATEGY)) {
-      WebSettingsCompat.setForceDarkStrategy(view.getSettings(), WebSettingsCompat.DARK_STRATEGY_PREFER_WEB_THEME_OVER_USER_AGENT_DARKENING);
+      WebSettingsCompat.setForceDarkStrategy(view.getSettings(), WebSettingsCompat.PREFER_WEB_THEME_OVER_USER_AGENT_DARKENING);
       view.getSettings().setForceDark(enabled ? WebSettings.FORCE_DARK_ON : WebSettings.FORCE_DARK_AUTO);
     }
   }
