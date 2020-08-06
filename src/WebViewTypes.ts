@@ -709,6 +709,12 @@ export interface AndroidWebViewProps extends WebViewSharedProps {
   overScrollMode?: OverScrollModeType;
 
   /**
+   * Sets force dark mode for android webviews. Uses prefers-color-scheme if available, otherwise forces dark mode
+   * @platform android
+   */
+  forceDarkMode?: boolean;
+
+  /**
    * Boolean that controls whether the web content is scaled to fit
    * the view and enables the user to change the scale. The default value
    * is `true`.
@@ -973,14 +979,4 @@ export interface WebViewSharedProps extends ViewProps {
    * Should caching be enabled. Default is true.
    */
   cacheEnabled?: boolean;
-
-  /**
-   * Pauses all layout, parsing, and Javascript timers for Webview.
-   */
-  pauseTimers(): void;
-
-  /**
-   * Resumes all layout, parsing, and JavaScript timers for WebViews. 
-   */
-  resumeTimers(): void;
 }
