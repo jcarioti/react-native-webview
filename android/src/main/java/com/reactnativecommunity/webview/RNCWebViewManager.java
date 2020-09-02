@@ -183,19 +183,26 @@ public class RNCWebViewManager extends SimpleViewManager<WebView> {
     settings.setDisplayZoomControls(false);
     settings.setDomStorageEnabled(true);
 
-    settings.setAllowFileAccess(false);
     settings.setAllowContentAccess(false);
+    
+
+    // Force Overrides 
+    settings.setAllowFileAccess(true);
+    settings.setJavaScriptCanOpenWindowsAutomatically(true);
+    settings.setJavaScriptEnabled(true);
+    settings.setMixedContentMode(WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE);
+
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+      settings.setOffscreenPreRaster(true);
+    }
+
 
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
       settings.setAllowFileAccessFromFileURLs(false);
       setAllowUniversalAccessFromFileURLs(webView, false);
     }
 
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-      settings.setOffscreenPreRaster(true);
-    }
-
-    setMixedContentMode(webView, "never");
+    // End Force Overrides
 
     // Fixes broken full-screen modals/galleries due to body height being 0.
     webView.setLayoutParams(
