@@ -916,6 +916,7 @@ public class RNCWebViewManager extends SimpleViewManager<WebView> {
           return false;
         }
 
+ 
         final boolean shouldOverride = lockObject.get() == ShouldOverrideCallbackState.SHOULD_OVERRIDE;
         RNCWebViewModule.shouldOverrideUrlLoadingLock.removeLock(lockIdentifier);
 
