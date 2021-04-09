@@ -302,6 +302,7 @@ export interface AndroidNativeWebViewProps extends CommonNativeWebViewProps {
   thirdPartyCookiesEnabled?: boolean;
   messagingModuleName?: string;
   readonly urlPrefixesForDefaultIntent?: string[];
+  getScrollableNode(): number | null;
 }
 
 export declare type ContentInsetAdjustmentBehavior = 'automatic' | 'scrollableAxes' | 'never' | 'always';
@@ -333,6 +334,7 @@ export interface IOSNativeWebViewProps extends CommonNativeWebViewProps {
   injectedJavaScriptBeforeContentLoadedForMainFrameOnly?: boolean;
   onFileDownload?: (event: FileDownloadEvent) => void;
   limitsNavigationsToAppBoundDomains?: boolean;
+  getScrollableNode(): number | null;
 }
 
 export interface MacOSNativeWebViewProps extends CommonNativeWebViewProps {

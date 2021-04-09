@@ -81,6 +81,7 @@ class WebView extends React.Component<AndroidWebViewProps, State> {
   onShouldStartLoadWithRequest: ReturnType<typeof createOnShouldStartLoadWithRequest> | null = null;
 
   webViewRef = React.createRef<NativeWebViewAndroid>();
+  getScrollableNode = () => this.webViewRef.current;
 
   messagingModuleName = `WebViewMessageHandler${uniqueRef+=1}`;
 
